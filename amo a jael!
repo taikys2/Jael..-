@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Mi Persona Especial 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #fff0f6);
+      text-align: center;
+      color: #444;
+      overflow-x: hidden;
+    }.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 25px;
+  max-width: 450px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+button {
+  background: #ff7eb9;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #ff4fa3;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+
+.gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body><div class="container">
+  <h1 id="nombreAnimado">Jael 💕</h1>
+  <p>Hice este pequeño mundo solo para ti, Jael. Cada detalle aquí tiene tu nombre en mi corazón 💗</p>  <div class="card">
+    <h2>Razones por las que te quiero 💌</h2>
+    <p>💗 Me haces sonreír sin esfuerzo.</p>
+    <p>✨ Me gusta cómo eres conmigo.</p>
+    <p>🌷 Contigo me siento tranquila.</p>
+  </div>  <div class="card">
+    <h2>Nuestro tiempo juntos ⏳</h2>
+    <p id="contador"></p>
+  </div>  <div class="card">
+    <h2>Nuestras fotitos 📸</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/100" alt="foto1">
+      <img src="https://via.placeholder.com/100" alt="foto2">
+      <img src="https://via.placeholder.com/100" alt="foto3">
+    </div>
+    <p>(Puedes cambiar estas imágenes por las suyas 💗)</p>
+  </div>  <div class="card">
+    <h2>Mini juego 🎮</h2>
+    <p>¿Quién quiere más?</p>
+    <button onclick="respuesta('Tú 😌')">Yo</button>
+    <button onclick="respuesta('Yo 😳')">Tú</button>
+    <div id="respuesta" class="hidden"></div>
+  </div>  <div class="card">
+    <h2>Mensaje secreto 💖</h2>
+    <button onclick="mostrarMensaje()">Presiona aquí</button>
+    <div id="mensaje" class="hidden">Gracias por estar en mi vida. Te quiero muchísimo 💗</div>
+  </div><button onclick="lluviaCorazones()">Haz llover amor 💘</button>
+
+  <footer>
+    Para Jael, con muchísimo cariño 💖✨
+  </footer>
+</div><audio autoplay loop>
+  <source src="" type="audio/mp3">
+  Tu navegador no soporta audio.
+</audio><script>
+  // Contador (CAMBIA ESTA FECHA POR LA SUYA)
+  const fechaInicio = new Date("2024-01-01");
+  const hoy = new Date();
+  const diferencia = hoy - fechaInicio;
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  document.getElementById("contador").innerText = "Jael, llevamos " + dias + " días creando recuerdos juntos 💕";
+
+  function mostrarMensaje() {
+    document.getElementById('mensaje').classList.remove('hidden');
+  }
+
+  function respuesta(texto) {
+    const r = document.getElementById('respuesta');
+    r.innerText = texto + " 💗";
+    r.classList.remove('hidden');
+  }
+
+  // Animación del nombre
+  const nombre = document.getElementById("nombreAnimado");
+  let escala = 1;
+  setInterval(() => {
+    escala = escala === 1 ? 1.05 : 1;
+    nombre.style.transform = `scale(${escala})`;
+    nombre.style.transition = "0.8s";
+  }, 800);
+
+  function lluviaCorazones() {
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+  }
+</script></body>
+</html
